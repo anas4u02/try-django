@@ -3,3 +3,5 @@ lib/
 trydjango/__pycache__/
 db.sqlite3
 pyvenv.cfg
+articles/__pycache__/
+articles/migrations/__pycache__/
