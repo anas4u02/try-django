@@ -5,6 +5,7 @@ import imp
 from random import random
 from django.http import HttpResponse
 from articles.models import Article
+from django.template.loader import render_to_string, get_template
 
 
 def home_view(request):
@@ -18,18 +19,16 @@ def home_view(request):
     article_obj.title = "Main Title"
     article_obj.content = "This is the content"
 
-    article_title = article_obj.title
-    article_content = article_obj.content
-
     context = {
         "title": article_obj.title,
         "id": article_obj.id,
         "content": article_obj.content,
     }
 
-    HTML_STRING = """
-    """.format(
-        **context
-    )
+    HTML_STRING = render_to_string("home-view.html", context=context)
+
+    # tmpl = get_template("home-view.html")
+    # tmpl_string = tmpl.render(context=context)
+    # tmpl_string2 = tmpl.render(context=context)
 
     return HttpResponse(HTML_STRING)
