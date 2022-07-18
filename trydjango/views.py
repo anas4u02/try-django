@@ -16,7 +16,6 @@ def home_view(request, *args, **kwargs):
     Take in a request (Django sends request)
     Return HTML as a response (We pick to return the response)
     """
-    print(id)
     random_num = 3
     article_obj = Article.objects.get(id=random_num)
 
